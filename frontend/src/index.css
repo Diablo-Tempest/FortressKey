@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+nav{
+    @apply border-b-[0.5px] border-b-slate-500 h-14 px-5
+}
+footer{
+    @apply border-t-[0.5px] border-t-slate-500 h-14 
+}
+.navUL{
+    @apply flex justify-between items-center text-white;
+}
+.footerUL{
+    @apply flex justify-between items-center text-white;
+}
+#logo{
+    @apply ml-5 h-9 w-9;
+}
+#footerLogo{
+    @apply ml-5 h-9 w-9;
+}
+#logoBox{
+    @apply flex justify-center items-center py-3;
+}
+.left-nav{
+    @apply flex justify-between items-center gap-5
+}
+.left-footer{
+    @apply flex justify-between items-center gap-5
+}
+#logoText{
+    @apply h-6 w-30;
+}
+#logoTextBox{
+    @apply flex justify-center items-center;
+}
+.right-nav{
+    @apply flex justify-between items-center gap-5 text-2xl
+}
+.right-footer{
+    @apply text-2xl pr-5
+}
+
+#footerName{
+    &&:hover{
+        @apply text-blue-500 transition
+    }
+}
+.min-h-manager{
+    min-height: calc(100vh - 7.3rem);
+}
+.userpass{
+    @apply flex justify-center items-center gap-5 w-full
+}
+.inputSection{
+    @apply flex flex-col justify-center items-center gap-5 w-1/2
+}
+.mainSection{
+    @apply text-white flex flex-col justify-center items-center gap-10 py-5;
+}
+.inputField{
+    @apply outline outline-purple-600 transition rounded-full bg-transparent px-5 py-3 w-full;
+    &&:focus{
+        @apply outline-purple-300
+    }
+    &&:focus-within{
+        @apply outline-purple-300
+    }
+}
+#saveBtn{
+    @apply bg-purple-600 text-2xl px-5 py-2 rounded-lg flex justify-center items-center transition;
+    &&:hover{
+        @apply bg-purple-700
+    }
+    &&:active{
+        @apply bg-purple-800
+    }
+}
+#passDesign{
+    @apply flex justify-between items-center;
+}
+#passField{
+    @apply outline-none
+}
+.visibleImg{
+    @apply h-6 w-6 invert
+}
+#tableDiv{
+    @apply border border-purple-300 rounded-md mb-5 select-none;
+}
+#passTable{
+    @apply table-fixed text-purple-300 w-full text-center divide-y-[0.5px] divide-purple-600
+}
+#actionDesign{
+    @apply flex justify-center items-center gap-5
+}
+#noPasswords{
+    @apply text-2xl font-bold text-red-600 transition;
+    &&:hover{
+        @apply text-slate-400 select-none w-fit
+    }
+}
+#passRow{
+    @apply divide-x-[0.5px] divide-purple-300;
+}
+.select-copy{
+    &&:hover{
+        @apply transition bg-purple-900;
+    }
+}
+#linkDesign{
+    @apply w-full block;
+}
