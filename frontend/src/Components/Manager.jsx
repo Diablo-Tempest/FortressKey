@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
+import 'dotenv/config';
 
 const Manager = () => {
     const [form, setForm] = useState({ siteURL: '', username: '', password: '' })
@@ -10,7 +11,7 @@ const Manager = () => {
     }
     useEffect(() => {
         const getPasswords = async () => {
-            let req = await fetch("http://localhost:3000/");
+            let req = await fetch(import.meta.env.SERVER_URI);
             let passwords = await req.json();
             setPassArray(passwords);
         }
@@ -48,7 +49,7 @@ const Manager = () => {
 
         if(form.id){
             setPassArray([...passArray, {...form}])
-            await fetch('http://localhost:3000/', { method: 'PUT', body: JSON.stringify({ ...form }), headers: { 'Content-Type': 'application/json' } })
+            await fetch(import.meta.env.SERVER_URI, { method: 'PUT', body: JSON.stringify({ ...form }), headers: { 'Content-Type': 'application/json' } })
             toast.success("Entry Updated Successfully!")
             setForm({ siteURL: '', username: '', password: '' })
             return;
@@ -56,7 +57,7 @@ const Manager = () => {
 
         // Save a new entry
         setPassArray([...passArray, { ...form, id: uuidv4() }])
-        await fetch('http://localhost:3000/', { method: 'POST', body: JSON.stringify({ ...form }), headers: { 'Content-Type': 'application/json' } })
+        await fetch(import.meta.env.SERVER_URI, { method: 'POST', body: JSON.stringify({ ...form }), headers: { 'Content-Type': 'application/json' } })
         toast.success("Entry is saved successfully!")
         setForm({ siteURL: '', username: '', password: '' })
     }
@@ -70,7 +71,7 @@ const Manager = () => {
     // delete the entry
     const deleteEntry = async (id) => {
         setPassArray(passArray.filter(item => item.id !== id))
-        await fetch('http://localhost:3000/', {method: 'DELETE', body: JSON.stringify({id}), headers: {"Content-Type": "application/json"}})
+        await fetch(import.meta.env.SERVER_URI, {method: 'DELETE', body: JSON.stringify({id}), headers: {"Content-Type": "application/json"}})
         toast.success("Entry Deleted Succesfully!")
     }
 

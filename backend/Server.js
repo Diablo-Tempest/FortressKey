@@ -13,7 +13,7 @@ app.use(express.json())
 
 // third-party middleware - Cross-Origin Resource Sharing (CORS)
 app.use(cors({
-    origin: "http://localhost:5173", // your fontend URL
+    origin: process.env.CLIENT_URI, // your fontend URL
     methods: ["GET", "POST", "PUT", "DELETE"], // your methods
     // credentials: true // only if we are using cookies/auth
 }));
