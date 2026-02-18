@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
-import 'dotenv/config';
 
 const Manager = () => {
     const [form, setForm] = useState({ siteURL: '', username: '', password: '' })
